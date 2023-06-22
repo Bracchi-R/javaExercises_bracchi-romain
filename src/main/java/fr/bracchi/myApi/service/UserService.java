@@ -19,7 +19,6 @@ public class UserService {
     }
   
     public User getUser(Integer id) {
-    
         for (User user : this.users) {
             if (user.getId() == id) {
             return user;
@@ -27,4 +26,19 @@ public class UserService {
         } 
     return null;
     } 
+
+    /*
+    Rendez-vous dans le dossier « service » à l’intérieur de « myApi ». Dans le fichier « UserService.java », vous devrez ajouter une méthode publique à la classe « UserService » qui sera nommée « createUser » prenant en paramètre le « name » et l’« age ». Elle devra retourner un « User ».
+    Dans cette méthode, vous devrez créer une nouvelle variable « User » nommée « user » avec comme « id » la taille de votre tableau « users » + 1, autrement dit :
+    users.size() + 1
+    Les propriétés « name » et « age » de « user » auront pour valeur celles des paramètres de la méthode.
+    Vous devrez par la suite ajouter « user » que vous venez de créer à votre tableau « users » en utilisant la méthode « add » de l’« ArrayList ». Pour finir, vous retournerez « user ».
+     */
+
+    public User createUser(String name, int age) {
+        int id = users.size() + 1;
+        User user = new User(id, name, age);
+        users.add(user);
+        return user;
+    }
 }
