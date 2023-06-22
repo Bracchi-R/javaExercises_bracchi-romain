@@ -20,12 +20,11 @@ public class UserService {
   
     public User getUser(Integer id) {
     
-        for (User user : users) {
+        for (User user : this.users) {
             if (user.getId() == id) {
             return user;
             }
         } 
     return null;
-    }
-    
+    } 
 }

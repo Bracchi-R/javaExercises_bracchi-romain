@@ -19,7 +19,6 @@ public class UserController {
     @GetMapping("/user")
     public User getUser(@RequestParam Integer id) {
         User user = userService.getUser(id);
-
         return user;
     }
 
@@ -27,7 +26,4 @@ public class UserController {
         requette Postman pour afficher le user id 1
         http://localhost:8080/user?id=1
     */
-
-    /* Test d'un puch GitKraken */
-    /* 2 Test d'un puch GitKraken */
 }
