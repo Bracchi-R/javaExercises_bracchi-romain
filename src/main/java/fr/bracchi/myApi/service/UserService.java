@@ -24,7 +24,7 @@ public class UserService {
             return user;
             }
         } 
-    return null;
+        return null;
     } 
 
     /*
@@ -40,5 +40,22 @@ public class UserService {
         User user = new User(id, name, age);
         users.add(user);
         return user;
+    }
+
+    /*
+    Rendez-vous dans le dossier « service » à l’intérieur de « myApi ». Dans le fichier « UserService.java », vous devrez ajouter une méthode publique à la classe « UserService » qui sera nommée « updateUser » prenant en paramètre un « id » le « name » et l’« age ». Elle devra retourner un « User ».
+    Dans cette méthode, vous devrez parcourir le tableau « users » et vérifier quand les « id » seront les mêmes. Dès que la condition sera vraie, c’est-à-dire que l’« id » de votre paramètre et l’« id » de l’« user » seront identiques, vous pourrez modifier les valeurs « name » et « age » avec les « setters » approprié. Vous retournerez ensuite un « user » modifié. 
+    Si vous ne trouvez pas l’« id » dans la liste « users » vous retournerez « null »
+     */
+
+    public User updateUser(Integer id, String name, Integer age) {
+        for (User user : this.users) {
+            if (user.getId() == id) {
+            user.setName(name);
+            user.setAge(age);
+            return user;
+            }
+        }
+        return null;
     }
 }

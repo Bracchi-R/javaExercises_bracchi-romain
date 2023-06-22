@@ -2,6 +2,7 @@ package fr.bracchi.myApi.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,9 +31,9 @@ public class UserController {
     */
 
     @PostMapping("/user")
-    public User createUser(@RequestBody UserRequest userRequest) {
-        String name = userRequest.getName();
-        int age = userRequest.getAge();
+    public User createUser(@RequestBody UserRequest body) {
+        String name = body.getName();
+        Integer age = body.getAge();
         
         User user = userService.createUser(name, age);
         return user;
@@ -43,4 +44,14 @@ public class UserController {
         http://localhost:8080/user?name=tata&age=22
     */
     
+    @PutMapping("/user")
+    public User updateUser(@RequestParam Integer id, @RequestBody UserRequest body) {
+        String name = body.getName();
+        Integer age = body.getAge();
+
+        User user = userService.updateUser(id, name, age);
+        return user;
+    }
+
+
 }
