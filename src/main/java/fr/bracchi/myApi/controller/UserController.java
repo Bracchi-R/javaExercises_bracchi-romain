@@ -1,5 +1,6 @@
 package fr.bracchi.myApi.controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -50,8 +51,29 @@ public class UserController {
         Integer age = body.getAge();
 
         User user = userService.updateUser(id, name, age);
+        // ou  User user = userService.updateUser(id, body.getName(), body.getAge());
         return user;
     }
 
+    /*
+    requette Postman Put pour modifier le user
+    http://localhost:8080/user
+    body raw :
+    {
+    "name" : "Jeanne",
+    "age" : 23
+    }
+     */
+
+     @DeleteMapping("/user")
+    public User deleteUser(@RequestParam Integer id) {
+        User user = userService.deleteUser(id);
+        return user;
+    }
+
+    /*
+    requette Postman DELETE pour suprime le user
+     http://localhost:8080/user?id=1
+     */
 
 }

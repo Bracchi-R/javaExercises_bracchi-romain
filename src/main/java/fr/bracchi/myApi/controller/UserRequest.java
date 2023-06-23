@@ -10,10 +10,10 @@ public class UserRequest {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public Integer getAge() {
-        return age;
+        return this.age;
     }   
 }
