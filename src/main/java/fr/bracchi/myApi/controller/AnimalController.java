@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +25,7 @@ public class AnimalController {
         this.animalService = animalService;
     }
 
+    @CrossOrigin // Pour récup les infos pour les affichées dans un HTML
     @GetMapping("/animals")
     public ResponseEntity<List<Animal>> getAllAnimal() {
         List<Animal> animals = animalService.getAllAnimal();
@@ -35,6 +37,7 @@ public class AnimalController {
         }
     }
 
+    @CrossOrigin
     @GetMapping("/animal")
     public ResponseEntity<Animal> getAnimal(@RequestParam int id) {
         Animal animal = animalService.getAnimal(id);
@@ -46,6 +49,7 @@ public class AnimalController {
         }
     }
 
+    @CrossOrigin
     @PostMapping("/animal")
     public ResponseEntity<Animal> createAnimal(@RequestBody AnimalResquest body) {
         Animal animal = animalService.createAnimal(body.getName(), body.getType(), body.getWeight());
@@ -57,6 +61,7 @@ public class AnimalController {
         }
     }
     
+    @CrossOrigin
     @PutMapping("/animal")
     public ResponseEntity<Animal> updateAnimal(@RequestParam int id, @RequestBody AnimalResquest body) {
         String name = body.getName();
@@ -72,6 +77,7 @@ public class AnimalController {
         }
     }
 
+    @CrossOrigin
     @DeleteMapping("/animal")
     public ResponseEntity<Animal> deleteAnimal(@RequestParam int id) {
         Animal animal = animalService.deleteAnimal(id);
