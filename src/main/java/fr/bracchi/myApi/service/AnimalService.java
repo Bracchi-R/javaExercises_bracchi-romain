@@ -35,7 +35,8 @@ public class AnimalService {
 
     GET http://localhost:8080/animals
      */
-
+    // --------------------------------------------------------------
+    
     public Animal getAnimal(int id) {
         for(Animal animal : this.animals) {
             if (animal.getId() == id) {
@@ -54,6 +55,7 @@ public class AnimalService {
 
     Key id; Value 2
      */
+    // --------------------------------------------------------------
 
     public Animal createAnimal(String name, String type, int weight) {
         int id = animals.size() + 1;
@@ -71,9 +73,10 @@ public class AnimalService {
     {
     "name" : "Cheval",
     "type" : "?",
-    "weight" : "350"
+    "weight" : 350
     }
      */
+    // --------------------------------------------------------------
 
     public Animal updateAnimal(int id, String name, String type, int weight) {
         for (Animal animal : this.animals) {
@@ -103,6 +106,7 @@ public class AnimalService {
     "weight" : "1"
     }
      */
+    // --------------------------------------------------------------
 
     public Animal deleteAnimal(int id) {
         for (Animal animal : this.animals) {
