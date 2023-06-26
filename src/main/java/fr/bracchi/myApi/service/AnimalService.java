@@ -30,6 +30,12 @@ public class AnimalService {
         return animals;
     }
 
+    /*
+    Postman
+
+    GET http://localhost:8080/animals
+     */
+
     public Animal getAnimal(int id) {
         for(Animal animal : this.animals) {
             if (animal.getId() == id) {
@@ -39,12 +45,35 @@ public class AnimalService {
         return null;
     }
 
+     /*
+    Postman
+
+    GET http://localhost:8080/animal
+
+    Params
+
+    Key id; Value 2
+     */
+
     public Animal createAnimal(String name, String type, int weight) {
         int id = animals.size() + 1;
         Animal animal = new Animal(id, name, type, weight);
         animals.add(animal);
         return animal;
     }
+
+    /*
+    Postman
+
+    POST http://localhost:8080/animal
+
+    Body, raw
+    {
+    "name" : "Cheval",
+    "type" : "?",
+    "weight" : "350"
+    }
+     */
 
     public Animal updateAnimal(int id, String name, String type, int weight) {
         for (Animal animal : this.animals) {
@@ -58,6 +87,23 @@ public class AnimalService {
         return null;
     }
 
+     /*
+    Postman
+
+    PUT http://localhost:8080/animal
+
+    Params
+
+    Key id; Value 2
+
+    Body, raw
+    {
+    "name" : "oiseau",
+    "type" : "?",
+    "weight" : "1"
+    }
+     */
+
     public Animal deleteAnimal(int id) {
         for (Animal animal : this.animals) {
             if (animal.getId() == id) {
@@ -66,4 +112,14 @@ public class AnimalService {
         }
         return null;
     }
+
+     /*
+    Postman
+
+    DELETE http://localhost:8080/animal
+
+    Params
+
+    Key id; Value 2
+     */
 }
